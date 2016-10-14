@@ -1,9 +1,13 @@
 var apiKey = require('./../.env').apiKey;
 
-exports.getRepos = function(){
-  $.get('https://api.github.com/users/daneden?access_token=' + apiKey).then(function(response){
-    console.log(response);
-  }).fail(function(error){
-    console.log(error.responseJSON.message);
+
+var GitHub = require('./../js/github.js').githubModule;
+
+$(document).ready(function() {
+  var currentGitHubObject = new GitHub();
+  $('#gh-username-button').click(function() {
+    var username = $('#gh-username-input').val();
+    $('#gh-username-input').val("");
+    currentGitHubObject.getRepos(username);
   });
-};
+});
