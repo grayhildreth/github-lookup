@@ -27,7 +27,6 @@ _Please contact grayhildreth@gmail.com_
 ## Technologies Used
 
 * _HTML_
-* _CSS_
 * _JavaScript_
 * _Bootstrap_
 * _jQuery_
