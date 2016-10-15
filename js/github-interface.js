@@ -1,6 +1,3 @@
-var apiKey = require('./../.env').apiKey;
-
-
 var GitHub = require('./../js/github.js').githubModule;
 
 $(document).ready(function() {
