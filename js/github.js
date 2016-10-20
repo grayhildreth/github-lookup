@@ -20,3 +20,4 @@ GitHub.prototype.getRepos = function(username) {
   });
 
 exports.githubModule = GitHub;
+};

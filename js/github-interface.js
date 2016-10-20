@@ -5,6 +5,6 @@ $(document).ready(function() {
   $('#gh-username-button').click(function() {
     var username = $('#gh-username-input').val();
     $('#gh-username-input').val("");
-    currentGitHubObject.getRepos(username);
+    GitHub.getRepos(username);
   });
 });
