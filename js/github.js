@@ -1,23 +1,35 @@
 var apiKey = require('./../.env').apiKey;
 
-function GitHub(){
+function Github(){
 }
 
-GitHub.prototype.getRepos = function(username) {
-  $.get('https://api.github.com/users/' + username + '?access_token=' + apiKey).then(function(response){
-
-    $('#show-gh-user-profile-pic').empty();
-    $('#show-gh-user-profile-pic').append("<img src=" + response.avatar_url + ">");
-    $('#show-gh-user-username').empty();
-    $('#show-gh-user-username').append("<h3 class='key'>Username: <span class='value'>" + response.login + "</span></h3>");
-    $('#show-gh-user-full-name').empty();
-    $('#show-gh-user-full-name').append("<h3 class='key'>Name: <span class='value'>" + response.name + "</span></h3>");
-    $('#show-gh-user-url').empty();
-    $('#show-gh-user-url').append("<h3 class='key'>GitHub URL: <span class='value'><a class='link' href='" + response.html_url + "'>" + response.html_url + "</span></h3>");
-
+Github.prototype.getUser = function(user) {
+  $.get('https://api.github.com/users/' + user + '?access_token=' + apiKey).then(function(response){
+    $('#gh-user-pic').append('<img src=' + response.avatar_url + '>');
+    $('#gh-fullname').append('Name: ' + response.name);
+    $('#gh-username').append('Username: ' + response.login);
   }).fail(function(error){
-    console.log(error.responseJSON.message);
+    $('#gh-username').append("<h3>No username found...</h3>");
   });
+    $('#gh-username').text("");
+}
 
-exports.githubModule = GitHub;
-};
+Github.prototype.getRepos = function(user) {
+  $.get('https://api.github.com/users/' + user + '/repos?access_token=' + apiKey, function(response){
+    for(var i = 0; i < response.length; i++) {
+      var description = response[i].description;
+      var repo = response[i].name;
+      if (description === null) {
+        description = "";
+        $('#gh-repo').append("<li>Repository: " + repo + "</li>");
+      } else {
+        $('#gh-repo').append("<li>Repository: " + repo + ": " + description + "</li>");
+      }
+    }
+  }).fail(function(error){
+    $('#gh-repo').text("");
+  });
+    $('#gh-repo').text("");
+}
+
+exports.githubModule = Github;

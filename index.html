@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>GitHub Lookup</title>
     <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="build/css/styles.css">
     <script src="build/js/vendor.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
-    <title>GitHub Users</title>
   </head>
   <body>
     <div class="container">
       <div class="page-header">
-        <h1>GitHub User Lookup!<small> Enter a username to find info!</small></h1>
+        <h1>GitHub Users!<small> Enter a username to find info!</small></h1>
       </div>
-        <input id="gh-username-input" type="text" placeholder="Enter Username">
-        <button class="button" id="gh-username-button">Search Users!</button>
-        <br></br>
-      <div class="jumbotron">
-        <div id="show-gh-user-profile-pic"></div>
-        <div id="show-gh-user-username"></div>
-        <div id="show-gh-user-full-name"></div>
-        <div id="show-gh-user-url"></div>
+      <div class="form">
+        <label for="user">Username</label>
+        <input id="user" type="text" placeholder="Enter Username">
+        <button class="button" id="searchUsers">Search!</button>
       </div>
+      <br></br>
+      <div class="container jumbotron">
+        <div id="gh-user-pic"></div>
+        <div id="gh-fullname"></div>
+        <div id="gh-username"></div>
+        <div id="gh-repo"></div>
     </div>
+  </div>
   </body>
 </html>
