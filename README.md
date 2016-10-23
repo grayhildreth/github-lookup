@@ -11,7 +11,7 @@ _This application allows the user to enter a GitHub username in the search form.
 ## Setup/Installation Requirements
 
 * _Connect to internet_
-* _Clone repository from GitHub (https://github.com/grayhildreth/github-lookup) in terminal_
+* _Clone this (https://github.com/grayhildreth/github-lookup) repository from GitHub in terminal_
 * _Once cloned, run "npm install" and "bower install"_
 * _This app will only work with a Personal Access Token (API) from GitHub.  Log in to GitHub to obtain the token, create a file called ".env" in the top level of this repository, and add the following:
 
