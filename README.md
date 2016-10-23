@@ -6,14 +6,18 @@
 
 ## Description
 
-_This application allows the user to enter a GitHub username in the search form.  The application then returns the user avatar, username, full name, and link to their GitHub page._
+_This application allows the user to enter a GitHub username in the search form.  The application then returns the user avatar, username, full name, and list of their repositories on GitHub._
 
 ## Setup/Installation Requirements
 
 * _Connect to internet_
-* _Clone repository from GitHub_
-* _Initialize Node and Bower_
-* _You must obtain and use your own API from GitHub to run this application_
+* _Clone repository from GitHub (https://github.com/grayhildreth/github-lookup) in terminal_
+* _Once cloned, run "npm install" and "bower install"_
+* _This app will only work with a Personal Access Token (API) from GitHub.  Log in to GitHub to obtain the token, create a file called ".env" in the top level of this repository, and add the following:
+
+  exports.apiKey = "PersonalAccessTokenGoesHere";
+
+* _Lastly, run "gulp serve" to run this application, and the browser will open automatically_
 
 
 ## Known Bugs
