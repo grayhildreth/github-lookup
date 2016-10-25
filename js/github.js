@@ -3,19 +3,26 @@ var apiKey = require('./../.env').apiKey;
 function Github(){
 }
 
-Github.prototype.getUser = function(user) {
+Github.prototype.getUser = function(user, userResults) {
   $.get('https://api.github.com/users/' + user + '?access_token=' + apiKey).then(function(response){
-    $('#gh-user-pic').empty();
-    $('#gh-fullname').empty();
-    $('#gh-username').empty();
-    $('#gh-user-pic').append('<img src=' + response.avatar_url + '>');
-    $('#gh-fullname').append('Name: ' + response.name);
-    $('#gh-username').append('Username: ' + response.login);
+
+    var avatarUrl = response.avatar_url;
+    var name = response.name;
+    var login = response.login;
+
+    userResults(avatarUrl, name, login);
+
+    // $('#gh-user-pic').empty();
+    // $('#gh-fullname').empty();
+    // $('#gh-username').empty();
+    // $('#gh-user-pic').append('<img src=' + response.avatar_url + '>');
+    // $('#gh-fullname').append('Name: ' + response.name);
+    // $('#gh-username').append('Username: ' + response.login);
   }).fail(function(error){
     $('#gh-username').text("<h3>No username found...</h3>");
   });
     $('#gh-username').text("");
-}
+};
 
 Github.prototype.getRepos = function(user) {
   $.get('https://api.github.com/users/' + user + '/repos?access_token=' + apiKey, function(response){
@@ -34,6 +41,6 @@ Github.prototype.getRepos = function(user) {
     $('#gh-repo').text("");
   });
     $('#gh-repo').text("");
-}
+};
 
 exports.githubModule = Github;
