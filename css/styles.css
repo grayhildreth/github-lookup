@@ -1,0 +1,23 @@
+h1 {
+	font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+}
+
+h4 {
+  font-family: Futura, "Trebuchet MS", Arial, sans-serif;
+  color: white;
+	font-style: normal;
+	font-variant: normal;
+}
+
+body{
+  background-color: #7fc4b8;
+}
+
+.jumbotron {
+  background-color: #feffd3;
+}

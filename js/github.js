@@ -12,14 +12,9 @@ Github.prototype.getUser = function(user, userResults) {
 
     userResults(avatarUrl, name, login);
 
-    // $('#gh-user-pic').empty();
-    // $('#gh-fullname').empty();
-    // $('#gh-username').empty();
-    // $('#gh-user-pic').append('<img src=' + response.avatar_url + '>');
-    // $('#gh-fullname').append('Name: ' + response.name);
-    // $('#gh-username').append('Username: ' + response.login);
+
   }).fail(function(error){
-    $('#gh-username').text("<h3>No username found...</h3>");
+    $('#gh-username').text("No username found...");
   });
     $('#gh-username').text("");
 };
